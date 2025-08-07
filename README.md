@@ -20,6 +20,7 @@ When you launch the app, it won't know when the most recent storm was, so it wil
 When you sight a storm in-game, hold the 'storm sighted' button and this will start the timer properly toward the next storm, 
 giving you the minutes remaining until the start and end of the storm window.
 
+---
 
 # UI Breakdown
 
@@ -57,6 +58,7 @@ This lets you adjust for storms that you caught late, for example, by adding tim
 I use these often if I catch a storm part way into the map already, as they seem to take around 5 minutes to cross the basin.
 
 ---
+
 # RISK
 The concept of 'risk' in this app relates to how risky it is to go out on an expidition where cover is not guaranteed, such as an overland buggy run in an open area,
 particularly near the edge of the map where there may be limited warning. It also accounts for a wiggle room of innacurately sighting storms and still having a feel for 
@@ -87,6 +89,7 @@ In the extreme risk segment, which starts at 45 minutes, a sandstorm can appear 
 You are in the spawn window. You have 0 to 15 minutes and should seek shelter if sandstorms are a threat to you.
 Avoid the edge of the map, where they may arrive with limited warning. Not that such a thing has happened to me, naturally.
 
+---
 
 <img width="771" height="769" alt="image" src="https://github.com/user-attachments/assets/4e85e84e-fa9a-4a77-9e3e-ca19a88fc2ff" />
 
@@ -106,6 +109,7 @@ I thought they would be useful but I don't think they have been and they're prob
 For posterity, they represented what 'risk bracket' threshold you were in (low, medium, high, extreme) represented by time window instead of label.
 Since implementing, I have never cared about it, and unless someone really likes them they'll probably be removed later.
 
+---
 
 <img width="768" height="764" alt="image" src="https://github.com/user-attachments/assets/1f8b8d68-453b-4762-8c0e-1048133256f4" />
 
@@ -135,6 +139,8 @@ This only saves its value to file, it has no mechanical effect. It's a way for m
 so I can exclude storm data I'm not confident in when I build an analysis app that reads it. Nothing more.
 If you don't plan on using the data, feel free to ignore it, or associate its value with something more meaningful to you.
 
+---
+
 <img width="772" height="768" alt="image" src="https://github.com/user-attachments/assets/3ea971b2-6b08-41dc-8b3c-ecbe4d5eafa3" />
 
 ## Game Clock
@@ -155,7 +161,10 @@ When in optimal dew time, the audio will say "dew optimal", and the indicator wi
 
 If sunrise / nightfall audio is enabled, it will notify you 30 seconds before sunrise / nightfall.
 
+---
+
 <img width="773" height="769" alt="image" src="https://github.com/user-attachments/assets/16323844-70b0-4e9d-b80a-a923f06e98be" />
+
 ## Chest Timers
 You can click these timers to set them to 45 minutes. When they get to zero they will notify you.
 
