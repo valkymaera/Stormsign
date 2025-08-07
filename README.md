@@ -87,7 +87,8 @@ You are in the spawn window. You have 0 to 15 minutes and should seek shelter if
 Avoid the edge of the map, where they may arrive with limited warning. Not that such a thing has happened to me, naturally.
 
 
-<img width="775" height="773" alt="image" src="https://github.com/user-attachments/assets/5f9c6ed2-b225-4817-a376-7519e5f57a74" />
+<img width="771" height="769" alt="image" src="https://github.com/user-attachments/assets/4e85e84e-fa9a-4a77-9e3e-ca19a88fc2ff" />
+
 
 ## Risk Banner
 on the bottom of the screen is a colorized risk banner, matching the risk color if colors help you.
