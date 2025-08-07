@@ -73,11 +73,11 @@ As the timer nears 60 minutes, the indicator on the meter will move to the right
 
 ### Low Risk (green, leftward)
 The first half hour is considered low risk. There's a high chance of getting where you need to be and back before seeing one. 
-In the low risk segment, you have a _minimum_ of 30 minutes before a storm appears.
+The low risk segment ends when the minimum time to storm reaches 15 minutes.
 
 ### Moderate Risk (yellow, center-left)
 Moderate risk lasts for ten minutes. It starts at the 30m marker and ends at 40m.
-In the moderate risk segment, you have under 30 minutes before a sandstorm appears on the map, possibly as little as 15 minutes.
+In the moderate risk segment, you have under 30 minutes before a sandstorm appears on the map, possibly as little as 10 minutes.
 
 ### High Risk (red, center-right)
 High risk marks the end of the 'safe' segment of the meter. It starts at 40m and only lasts 5 minutes before entering extreme.
