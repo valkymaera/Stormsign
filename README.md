@@ -88,7 +88,8 @@ The absolute maximum time you have is 20 minutes.
 ### Extreme Risk (violet and up, far right)
 In the extreme risk segment, which starts at 45 minutes, a sandstorm can appear at _any moment_.
 You are in the spawn window. You have 0 to 15 minutes and should seek shelter if sandstorms are a threat to you.
-Avoid the edge of the map, where they may arrive with limited warning. Not that such a thing has happened to me, naturally.
+Avoid the edge of the map, where they may arrive with limited warning, sending you driving for cover off a cliff into open sand where 
+shai halud will give you shelter. Not that such a thing has happened to me, naturally.
 
 ---
 
