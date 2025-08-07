@@ -84,12 +84,16 @@ namespace LorePath.Stormsign
 
         protected override void UpdateRotationValue()
         {
+            
+
             if (!_isEditMode)
             {
-                if (_rotation < 0f) _rotation = 360f - (Mathf.Abs(_rotation) % 360f);
-                _rotation = (_rotation + (_clockSpeed * _degreesPerSecond * Time.deltaTime)) % 360f;
+                _rotation = (_rotation + (_clockSpeed * _degreesPerSecond * Time.deltaTime));
             }
             else UpdateMouseDrag();
+
+            if (_rotation < 0f) _rotation = 360f - (Mathf.Abs(_rotation) % 360f);
+            else _rotation %= 360f;
             _managedClockData.Rotation = _rotation;
 
         }
@@ -110,7 +114,7 @@ namespace LorePath.Stormsign
                     Signal = _dewIsOptimal ? AudioSignal.Dew_Optimal : AudioSignal.Dew_Start,
                     Clip = _dewIsPresent ? _dewOptimalOverrideClip : _dewStartedOverrideClip,
                     Volume = 1f
-                }); 
+                });
             }
 
             if (_dirtyDay)
@@ -118,11 +122,10 @@ namespace LorePath.Stormsign
                 EventBus.RaiseEvent(new RequestAudioEvent()
                 {
                     Signal = _isDayOrNearlyDay ? AudioSignal.Sunrise : AudioSignal.Nightfall,
-                    Clip = _isDayOrNearlyDay ? _sunriseOverrideClip: _nightfallOverrideClip,
+                    Clip = _isDayOrNearlyDay ? _sunriseOverrideClip : _nightfallOverrideClip,
                     Volume = 1f
                 });
             }
-
             base.UpdateIndicators();
 
         }
@@ -180,6 +183,8 @@ namespace LorePath.Stormsign
         {
             Vector2 mouseVector = (Input.mousePosition - this.transform.position).normalized;
             _rotation = _rotationAtEditStart + Vector2.SignedAngle(mouseVector, _dragStartVector);
+            _managedClockData.Rotation = _rotation;
+            UpdateIndicators();
         }
 
         /// <summary>

@@ -69,7 +69,7 @@ namespace LorePath.Stormsign
             // don't do any rotating or indicators or anything until we actually have a clock value set.
             // setting it means the user has rotated it to match the game,
             // OR we detected player prefs from them setting it in a previous session.
-            if (_clockData != null && _clockData.HasBeenSet)
+            if (_clockData != null)
             {
                 UpdateFaceRotation();
                 UpdateTimeWindows();
@@ -118,20 +118,24 @@ namespace LorePath.Stormsign
             _dayNightWindow = _rotation > 84f && _rotation < 264f ? DayWindow.Day : DayWindow.Night;
         }
 
+
+        /// <summary>
+        /// Updates any visual indicators on the clock based on window changes creating dirty flags.
+        /// optionally can keep the flags dirty, so the primary clock can trigger an audio alert when editing is finished.
+        /// </summary>
+        /// <param name="keepDirty"></param>
         protected virtual void UpdateIndicators()
         {
             if (_dirtyDew)
-            {
-                _dewIndicator.fillAmount = _dewIsPresent ? _dewIsOptimal  ? 1f : 0.5f : 0f;
+            { 
+                _dewIndicator.fillAmount = _dewIsPresent ? _dewIsOptimal ? 1f : 0.5f : 0f;
                 _activeDewImage.enabled = _dewIsPresent;
                 _lastDewWindow = _dewWindow;
             }
 
-            if (_dirtyDay)
-            {
-                _lastDayWindow = _dayNightWindow;
-                // kinda only used by the primary for audio events.
-            }
+            // not doing anything here with these flags,
+            // primary clock uses them for sunrise/sunset alerts etc
+            _lastDayWindow = _dayNightWindow;
         }
 
 
