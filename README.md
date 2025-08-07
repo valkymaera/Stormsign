@@ -13,7 +13,8 @@ It has additional 'bonus' features of a settable game clock with dew and day cyc
 
 # First Run
 
-This app requires that you know when the last storm was in order to work. It tracks the time since then and gives you a risk window.
+This app requires that you know when the last storm was in order for it to be useful for storms (you can still use the timers for whatever of course). 
+It tracks the time since the last storm you sighted, and gives you a risk window with audio alerts, as you approach and enter the next storm window.
 When you launch the app, it won't know when the most recent storm was, so it will give you a risk window of 0 to 60 minutes.
 
 When you sight a storm in-game, hold the 'storm sighted' button and this will start the timer properly toward the next storm, 
