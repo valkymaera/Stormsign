@@ -2,6 +2,15 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
+
+/[Aa]ssets/[Ss]treaming[Aa]ssets/[Ss]torm [Dd]ata/
+/[Aa]ssets/[Ss]treaming[Aa]ssets/[Ss]torm [Dd]ata.meta
+/[Aa]ssets/[Ss]treaming[Aa]ssets/[Ss]torm[Dd]ata/
+/[Aa]ssets/[Ss]treaming[Aa]ssets/[Ss]torm[Dd]ata.meta
+
+/[Aa]ssets/TextMesh Pro/
+/[Aa]ssets/TextMesh Pro.meta
+
 .utmp/
 /[Ll]ibrary/
 /[Tt]emp/
@@ -97,3 +106,4 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+/.vsconfig
