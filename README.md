@@ -77,15 +77,16 @@ The low risk segment ends when the minimum time to storm reaches 15 minutes.
 
 ### Moderate Risk (yellow, center-left)
 Moderate risk lasts for ten minutes. It starts at the 30m marker and ends at 40m.
-In the moderate risk segment, you have under 30 minutes before a sandstorm appears on the map, possibly as little as 10 minutes.
+When entering the moderate risk segment, you have a _maximum_ of 30 minutes before a sandstorm appears on the map.
+This segment ends when the _minimum_ time to storm reaches 5 minutes.
 
 ### High Risk (red, center-right)
-High risk marks the end of the 'safe' segment of the meter. It starts at 40m and only lasts 5 minutes before entering extreme.
-These are the last 5 minutes where a sandstorm will definitely not spawn. Possibly less if your sighting wasn't timed well.
+High risk marks the end of the 'safe' segment of the meter. It starts at the 40m mark and only lasts 5 minutes before entering extreme.
+These are the last 5 minutes where a sandstorm will definitely not spawn (Possibly less if your sighting wasn't timed perfectly).
 The absolute maximum time you have is 20 minutes.
 
 ### Extreme Risk (violet and up, far right)
-In the extreme risk segment, which starts at 45 minutes, a sandstorm can appear at any time.
+In the extreme risk segment, which starts at 45 minutes, a sandstorm can appear at _any moment_.
 You are in the spawn window. You have 0 to 15 minutes and should seek shelter if sandstorms are a threat to you.
 Avoid the edge of the map, where they may arrive with limited warning. Not that such a thing has happened to me, naturally.
 
