@@ -60,7 +60,7 @@ I use these often if I catch a storm part way into the map already, as they seem
 ---
 
 # RISK
-The concept of 'risk' in this app relates to how risky it is to go out on an expidition where cover is not guaranteed, such as an overland buggy run in an open area,
+The concept of 'risk' in this app relates to how risky it is to go out on an expedition where cover is not guaranteed, such as an overland buggy run in an open area,
 particularly near the edge of the map where there may be limited warning. It also accounts for a wiggle room of innacurately sighting storms and still having a feel for 
 how imminent a storm is.
 
@@ -89,7 +89,7 @@ The absolute maximum time you have is 20 minutes.
 In the extreme risk segment, which starts at 45 minutes, a sandstorm can appear at _any moment_.
 You are in the spawn window. You have 0 to 15 minutes and should seek shelter if sandstorms are a threat to you.
 Avoid the edge of the map, where they may arrive with limited warning, sending you driving for cover off a cliff into open sand where 
-shai halud will give you shelter. Not that such a thing has happened to me, naturally.
+Shai Halud will give you shelter. Not that such a thing has happened to me, naturally.
 
 ---
 
@@ -97,18 +97,18 @@ shai halud will give you shelter. Not that such a thing has happened to me, natu
 
 
 ## Risk Banner
-on the bottom of the screen is a colorized risk banner, matching the risk color if colors help you.
+on the bottom of the screen is a colorized risk banner, matching the color of the current risk bracket on the meter.
 This banner has two sets of numbers visible
 
 ### Storm Window
 The larger numbers on top. One of the main features, this shows the minimum and maximum time until the next storm.
-It is a fifteen minute window, based on the 'extreme' threshold that starts 45 minutes after the previous storm.
-These two numbers were the driving force behind me creating the app so I didn't have to do math in my head.
+It is a fifteen minute window, representing the 'extreme' bracket that starts 45 minutes after the previous storm.
+These two numbers were the driving force behind me creating the app, as now I donn't have to do math in my head.
 
 ### Risk Bracket
 The small bottom numbers. You can ignore these. They represent the thresholds for each risk level.
 I thought they would be useful but I don't think they have been and they're probably not well communicated.
-For posterity, they represented what 'risk bracket' threshold you were in (low, medium, high, extreme) represented by time window instead of label.
+For posterity, they represent what 'risk bracket' threshold you were in (low, medium, high, extreme) shown by the bracket time range instead of the threat term.
 Since implementing, I have never cared about it, and unless someone really likes them they'll probably be removed later.
 
 ---
@@ -118,7 +118,7 @@ Since implementing, I have never cared about it, and unless someone really likes
 ## Direction Log
 Optionally, you can log the direction of the sandstorm after it's sighted. It saves it to file along with storm time data, for optional analysis.
 I added this to see if there is a pattern to the directions, but it might have some value in visualizing safe / unsafe areas. Maybe.
-The 'clock' values on the map correspond to the world map entrance points.
+The 'clock' values on the map correspond(ed) to the world map entrance points at the time of development. However I've heard they may have changed position.
 
 ### Creating a storm vector
 To create a directional arrow, left click anywhere on the map to set the start location, and right click to set the end (arrowhead) location.
