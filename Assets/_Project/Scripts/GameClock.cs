@@ -105,17 +105,20 @@ namespace LorePath.Stormsign
         {
             // the clock is divided into 20 x 18 degree slices. 10 for night, and 10 for day.
             // each slice represents a minute and a half. 
-            // there's 3 small slices for optimal dew, and 2 small slices for "decent" dew (still says poor in-game but it's not so bad)
+            // there's 3 small slices for optimal dew, sandwiched between 2 small slices for "decent" dew where it is growing or shrinking.
 
-            if (_rotation < 90f) // if we're not at sunrise yet (90 degrees)...
+            if (_rotation < 72f) // if we're not at sunrise yet (72 degrees)...
             {
-                if (_rotation >= 36f) _dewWindow = DewWindow.Optimal;  // then if we're past that 2 slice decent, we must be optimal.
+                if (_rotation >= 18f) _dewWindow = DewWindow.Optimal;  // then if we're past that increasing slice, we must be optimal.
                 else _dewWindow = DewWindow.Decent;
             }
+            else if (_rotation < 76f || _rotation > 350f)  _dewWindow = DewWindow.Decent; // slight dew before sunrise, and moderate before our zero degree setting.
             else _dewWindow = DewWindow.None;
 
-            // the day window doesn't perfectly match actual day time or nigh time, since we want to know if it's coming not if it's here.
-            _dayNightWindow = _rotation > 84f && _rotation < 264f ? DayWindow.Day : DayWindow.Night;
+            // the day window doesn't perfectly match actual day time or night time, since we want to know if it's coming, not if it's here.
+            _dayNightWindow = _rotation > 70f && _rotation < 252f ? DayWindow.Day : DayWindow.Night;
+
+            // TODO: put moderate dew signal on a slider in settings, map it around the night slice.
         }
 
 
@@ -126,12 +129,21 @@ namespace LorePath.Stormsign
         /// <param name="keepDirty"></param>
         protected virtual void UpdateIndicators()
         {
-            if (_dirtyDew)
-            { 
-                _dewIndicator.fillAmount = _dewIsPresent ? _dewIsOptimal ? 1f : 0.5f : 0f;
-                _activeDewImage.enabled = _dewIsPresent;
-                _lastDewWindow = _dewWindow;
+            if (_rotation < 72f || _rotation > 270f) 
+            {
+                float dewFocusedRotation = (_rotation + 90f) % 360f;
+                _dewIndicator.fillAmount = Mathf.InverseLerp(0f, 108f, dewFocusedRotation);
+                Debug.Log(" rotation / fill = " + dewFocusedRotation + " / " + _dewIndicator.fillAmount);
             }
+            else if (_rotation < 78f)
+            {
+                _dewIndicator.fillAmount = Mathf.InverseLerp(78f, 72f, _rotation);
+            }
+            else _dewIndicator.fillAmount = 0f;
+
+            _activeDewImage.enabled = _dewIsPresent;
+            _lastDewWindow = _dewWindow;
+
 
             // not doing anything here with these flags,
             // primary clock uses them for sunrise/sunset alerts etc
@@ -158,10 +170,13 @@ namespace LorePath.Stormsign
         void OnTick(TimerTickEvent evt)
         {
             if (_label != null && _clockData != null)
-            {
+            {                                 
                 // since we're tracking minutes until dew, we keep it at zero minutes until the dew actually stops,
                 // which is sunrise at the 90 degree rotation mark.
-                float minutes = _rotation > 90f ? Mathf.RoundToInt(((360f - _rotation) / (0.2f * _clockData.Multiplier)) / 60f) : 0f;
+                float minutes = 0f;
+                if (_rotation > 90f) minutes = Mathf.RoundToInt(((360f - (_rotation - 18f)) / (0.2f * _clockData.Multiplier)) / 60f);
+                else if (_rotation < 18f) minutes = Mathf.RoundToInt(((18f - _rotation) / (0.2f * _clockData.Multiplier)) / 60f);
+
                 _label.text = _clockData.HasBeenSet ? minutes.ToString() + "m" : "??m";
             }
         }

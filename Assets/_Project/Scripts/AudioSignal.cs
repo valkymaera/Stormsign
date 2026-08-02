@@ -27,7 +27,7 @@ namespace LorePath.Stormsign
 
         Chest_Respawn,
 
-        Dew_Start,
+        Dew_Moderate,
         Dew_Optimal,
 
         Sunrise,

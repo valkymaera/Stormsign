@@ -108,16 +108,20 @@ namespace LorePath.Stormsign
             if (_isEditMode) return;
 
             if (_dirtyDew && _dewIsPresent)
-            {
-                EventBus.RaiseEvent(new RequestAudioEvent()
-                {
-                    Signal = _dewIsOptimal ? AudioSignal.Dew_Optimal : AudioSignal.Dew_Start,
-                    Clip = _dewIsPresent ? _dewOptimalOverrideClip : _dewStartedOverrideClip,
-                    Volume = 1f
-                });
+            {       
+                // after the optimal dew point, we enter a second decent dew point again, but we don't want to trigger decent audio.
+                if (_lastDewWindow != DewWindow.Optimal)
+                {                
+                    EventBus.RaiseEvent(new RequestAudioEvent()
+                    {                    
+                        Signal = _dewIsOptimal ? AudioSignal.Dew_Optimal : AudioSignal.Dew_Moderate,
+                        Clip = _dewIsPresent ? _dewOptimalOverrideClip : _dewStartedOverrideClip,
+                        Volume = 1f
+                    });
+                }
             }
 
-            if (_dirtyDay)
+            if (_dirtyDay && _lastDayWindow != DayWindow.Undefined)
             {
                 EventBus.RaiseEvent(new RequestAudioEvent()
                 {
@@ -126,6 +130,8 @@ namespace LorePath.Stormsign
                     Volume = 1f
                 });
             }
+
+            // update visuals and reset flags
             base.UpdateIndicators();
 
         }

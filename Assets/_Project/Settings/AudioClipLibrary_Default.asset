@@ -30,6 +30,6 @@ MonoBehaviour:
   - Signal: 10
     Clip: {fileID: 8300000, guid: ce587ed829d0d2f44b8be19f4c80dfee, type: 3}
   - Signal: 7
-    Clip: {fileID: 8300000, guid: 571f08f90b64acc4f9adb8bd4ee3d33c, type: 3}
+    Clip: {fileID: 8300000, guid: 6e5ee23cbce997043ace48664d310249, type: 3}
   - Signal: 8
     Clip: {fileID: 8300000, guid: ba55eadbc0a2f464b8f36d965fe19b27, type: 3}
