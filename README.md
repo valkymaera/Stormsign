@@ -1,8 +1,8 @@
 # Stormsign
 A simple if not ugly feature timer companion app for Dune: Awakening focused on tracking sandstorms, with QoL timers.
-It's 768 x 768, not currently resizeable, and other platforms are planned but lower priority (WebGL, Linux, _maybe_ mobile)
+It's 768 x 768, not currently resizable, and other platforms are planned but lower priority (WebGL, Linux, _maybe_ mobile)
 
-<img width="768" height="768" alt="image" src="https://github.com/user-attachments/assets/bfd404e7-b8cd-4744-acce-4619e11f564e" />
+<img width="768" height="765" alt="image" src="https://github.com/user-attachments/assets/a83b80fe-789e-4f95-a9a5-3df8f8303acd" />
 
 
 The primary feature is to **track and warn you** of the 15 minute window in which a sandstorm might appear.
@@ -61,7 +61,7 @@ I use these often if I catch a storm part way into the map already, as they seem
 
 # RISK
 The concept of 'risk' in this app relates to how risky it is to go out on an expedition where cover is not guaranteed, such as an overland buggy run in an open area,
-particularly near the edge of the map where there may be limited warning. It also accounts for a wiggle room of innacurately sighting storms and still having a feel for 
+particularly near the edge of the map where there may be limited warning. It also accounts for a wiggle room of inaccurately sighting storms and still having a feel for 
 how imminent a storm is.
 
 <img width="775" height="773" alt="image" src="https://github.com/user-attachments/assets/73dc0bba-b57f-4139-94a0-c4d78f18d9d4" />
@@ -103,13 +103,13 @@ This banner has two sets of numbers visible
 ### Storm Window
 The larger numbers on top. One of the main features, this shows the minimum and maximum time until the next storm.
 It is a fifteen minute window, representing the 'extreme' bracket that starts 45 minutes after the previous storm.
-These two numbers were the driving force behind me creating the app, as now I donn't have to do math in my head.
+These two numbers were the driving force behind me creating the app, as now I don't have to do math in my head.
 
 ### Risk Bracket
-The small bottom numbers. You can ignore these. They represent the thresholds for each risk level.
-I thought they would be useful but I don't think they have been and they're probably not well communicated.
-For posterity, they represent what 'risk bracket' threshold you were in (low, medium, high, extreme) shown by the bracket time range instead of the threat term.
-Since implementing, I have never cared about it, and unless someone really likes them they'll probably be removed later.
+The small bottom numbers. They don't exist. I removed them because they weren't useful and could cause confusion.
+You're only reading this because I'm too lazy to replace the screenshot with the new version without them.
+In case you're curious, they represented the time window that represented your current storm risk bracket.
+it's even confusing to type.
 
 ---
 
@@ -152,16 +152,21 @@ It helps to avoid being ready for dew 10 minutes before it appears and then forg
 To sync the clock with the game, click it. a large version will appear that you can dial into the right time.
 Once you set the clock, it saves the set time and rotation, so next time you launch the app it should still be pretty accurate.
 
+<img width="104" height="145" alt="image" src="https://github.com/user-attachments/assets/cc3c3004-2c6a-4627-bd63-81c9bd34d753" />
+
 ## Dew Indicator
-Before sunrise, the night has 3 minutes of decent dew time (it reads as 'poor' in the game but is still good), followed by 4.5 minutes of optimal dew time.
-(The bright blue slice before sunrise did not seem to be better than the 3 minutes preceeding it)
+At night, the dew level steadily rises until it reaches an optimal level for the 4.5 minutes (270s) before sunrise. 
+As it rises, the dew indicator will fill with water, and there will be two audio events:
+- "Dew Moderate" will occur when dew reaches around 75% of its optimal value; somewhere around 100 seconds before optimal.
+- "Dew Optimal" will occur when dew reaches the maximum value for the night, which will last 4.5 minutes, followed by sunrise.
 
-A time label next to the dew indicator shows how many minutes before dew begins. Once started, it remains at zero minutes until sunrise.
+At sunrise, the dew drops off very quickly. 
 
-When in 'decent' dew time, there will be an audio alert "Dew has begun", and the dewdrop indicator will be half full.
-When in optimal dew time, the audio will say "dew optimal", and the indicator will be full.
+Visually, the clock shows the optimal dew time as a bright blew slice.
+It also shows the 50% dew point in a darker blue, and though it's hard to see, the "Moderate" dew range is a gradient between the two,
+just before the optimal time.
 
-If sunrise / nightfall audio is enabled, it will notify you 30 seconds before sunrise / nightfall.
+If sunrise / nightfall audio is enabled, it will notify you about 30 seconds before sunrise / nightfall.
 
 ---
 
