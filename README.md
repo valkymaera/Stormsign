@@ -13,12 +13,14 @@ It has additional 'bonus' features of a settable game clock with dew and day cyc
 
 # First Run
 
-This app requires that you know when the last storm was in order to work. It tracks the time since then and gives you a risk window.
+This app requires that you know when the last storm was in order for it to be useful for storms (you can still use the timers for whatever of course). 
+It tracks the time since the last storm you sighted, and gives you a risk window with audio alerts, as you approach and enter the next storm window.
 When you launch the app, it won't know when the most recent storm was, so it will give you a risk window of 0 to 60 minutes.
 
 When you sight a storm in-game, hold the 'storm sighted' button and this will start the timer properly toward the next storm, 
 giving you the minutes remaining until the start and end of the storm window.
 
+---
 
 # UI Breakdown
 
@@ -56,8 +58,9 @@ This lets you adjust for storms that you caught late, for example, by adding tim
 I use these often if I catch a storm part way into the map already, as they seem to take around 5 minutes to cross the basin.
 
 ---
+
 # RISK
-The concept of 'risk' in this app relates to how risky it is to go out on an expidition where cover is not guaranteed, such as an overland buggy run in an open area,
+The concept of 'risk' in this app relates to how risky it is to go out on an expedition where cover is not guaranteed, such as an overland buggy run in an open area,
 particularly near the edge of the map where there may be limited warning. It also accounts for a wiggle room of innacurately sighting storms and still having a feel for 
 how imminent a storm is.
 
@@ -70,48 +73,52 @@ As the timer nears 60 minutes, the indicator on the meter will move to the right
 
 ### Low Risk (green, leftward)
 The first half hour is considered low risk. There's a high chance of getting where you need to be and back before seeing one. 
-In the low risk segment, you have a _minimum_ of 30 minutes before a storm appears.
+The low risk segment ends when the minimum time to storm reaches 15 minutes.
 
 ### Moderate Risk (yellow, center-left)
 Moderate risk lasts for ten minutes. It starts at the 30m marker and ends at 40m.
-In the moderate risk segment, you have under 30 minutes before a sandstorm appears on the map, possibly as little as 15 minutes.
+When entering the moderate risk segment, you have a _maximum_ of 30 minutes before a sandstorm appears on the map.
+This segment ends when the _minimum_ time to storm reaches 5 minutes.
 
 ### High Risk (red, center-right)
-High risk marks the end of the 'safe' segment of the meter. It starts at 40m and only lasts 5 minutes before entering extreme.
-These are the last 5 minutes where a sandstorm will definitely not spawn. Possibly less if your sighting wasn't timed well.
+High risk marks the end of the 'safe' segment of the meter. It starts at the 40m mark and only lasts 5 minutes before entering extreme.
+These are the last 5 minutes where a sandstorm will definitely not spawn (Possibly less if your sighting wasn't timed perfectly).
 The absolute maximum time you have is 20 minutes.
 
 ### Extreme Risk (violet and up, far right)
-In the extreme risk segment, which starts at 45 minutes, a sandstorm can appear at any time.
+In the extreme risk segment, which starts at 45 minutes, a sandstorm can appear at _any moment_.
 You are in the spawn window. You have 0 to 15 minutes and should seek shelter if sandstorms are a threat to you.
-Avoid the edge of the map, where they may arrive with limited warning. Not that such a thing has happened to me, naturally.
+Avoid the edge of the map, where they may arrive with limited warning, sending you driving for cover off a cliff into open sand where 
+Shai Halud will give you shelter. Not that such a thing has happened to me, naturally.
 
+---
 
 <img width="771" height="769" alt="image" src="https://github.com/user-attachments/assets/4e85e84e-fa9a-4a77-9e3e-ca19a88fc2ff" />
 
 
 ## Risk Banner
-on the bottom of the screen is a colorized risk banner, matching the risk color if colors help you.
+on the bottom of the screen is a colorized risk banner, matching the color of the current risk bracket on the meter.
 This banner has two sets of numbers visible
 
 ### Storm Window
 The larger numbers on top. One of the main features, this shows the minimum and maximum time until the next storm.
-It is a fifteen minute window, based on the 'extreme' threshold that starts 45 minutes after the previous storm.
-These two numbers were the driving force behind me creating the app so I didn't have to do math in my head.
+It is a fifteen minute window, representing the 'extreme' bracket that starts 45 minutes after the previous storm.
+These two numbers were the driving force behind me creating the app, as now I donn't have to do math in my head.
 
 ### Risk Bracket
 The small bottom numbers. You can ignore these. They represent the thresholds for each risk level.
 I thought they would be useful but I don't think they have been and they're probably not well communicated.
-For posterity, they represented what 'risk bracket' threshold you were in (low, medium, high, extreme) represented by time window instead of label.
+For posterity, they represent what 'risk bracket' threshold you were in (low, medium, high, extreme) shown by the bracket time range instead of the threat term.
 Since implementing, I have never cared about it, and unless someone really likes them they'll probably be removed later.
 
+---
 
 <img width="768" height="764" alt="image" src="https://github.com/user-attachments/assets/1f8b8d68-453b-4762-8c0e-1048133256f4" />
 
 ## Direction Log
 Optionally, you can log the direction of the sandstorm after it's sighted. It saves it to file along with storm time data, for optional analysis.
 I added this to see if there is a pattern to the directions, but it might have some value in visualizing safe / unsafe areas. Maybe.
-The 'clock' values on the map correspond to the world map entrance points.
+The 'clock' values on the map correspond(ed) to the world map entrance points at the time of development. However I've heard they may have changed position.
 
 ### Creating a storm vector
 To create a directional arrow, left click anywhere on the map to set the start location, and right click to set the end (arrowhead) location.
@@ -134,6 +141,8 @@ This only saves its value to file, it has no mechanical effect. It's a way for m
 so I can exclude storm data I'm not confident in when I build an analysis app that reads it. Nothing more.
 If you don't plan on using the data, feel free to ignore it, or associate its value with something more meaningful to you.
 
+---
+
 <img width="772" height="768" alt="image" src="https://github.com/user-attachments/assets/3ea971b2-6b08-41dc-8b3c-ecbe4d5eafa3" />
 
 ## Game Clock
@@ -154,7 +163,10 @@ When in optimal dew time, the audio will say "dew optimal", and the indicator wi
 
 If sunrise / nightfall audio is enabled, it will notify you 30 seconds before sunrise / nightfall.
 
+---
+
 <img width="773" height="769" alt="image" src="https://github.com/user-attachments/assets/16323844-70b0-4e9d-b80a-a923f06e98be" />
+
 ## Chest Timers
 You can click these timers to set them to 45 minutes. When they get to zero they will notify you.
 
